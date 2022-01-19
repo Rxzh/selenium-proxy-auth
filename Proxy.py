@@ -74,4 +74,5 @@ def BrowserInit(PROXY_HOST="8080.8080.8080.8080",
         zp.writestr("background.js", background_js)
     chrome_options.add_extension(pluginfile)
     os.remove(os.path.abspath(pluginfile))
-    webdriver.Chrome(chrome_options=chrome_options)
+    driver = webdriver.Chrome(chrome_options=chrome_options)
+    return driver
