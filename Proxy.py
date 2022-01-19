@@ -60,7 +60,7 @@ def set_background(PROXY_HOST, PROXY_PORT, PROXY_USER, PROXY_PASS):
     return background_js
 
 
-def BrowserInit(PROXY_HOST="8080.8080.8080.8080", 
+def init_chrome_options_with_proxy(PROXY_HOST="8080.8080.8080.8080", 
                 PROXY_PORT=80, 
                 PROXY_USER='username', 
                 PROXY_PASS='password'):
@@ -74,5 +74,4 @@ def BrowserInit(PROXY_HOST="8080.8080.8080.8080",
         zp.writestr("background.js", background_js)
     chrome_options.add_extension(pluginfile)
     os.remove(os.path.abspath(pluginfile))
-    driver = webdriver.Chrome(chrome_options=chrome_options)
-    return driver
+    return chrome_options
